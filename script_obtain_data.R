@@ -71,11 +71,17 @@ rbind(url_table_assam,url_table_kerala,
       url_table_westbengal) -> complete_url_table
 
 
+# Getting the data
+
+map_dfr(complete_url_table$url,
+        get_eci_table) -> data_results_all
 
 
 
 
+# writing the table in excel ----------------------------------------------
 
+write_csv(data_results_all,"all_final_results.csv")
 
 
 
